@@ -13,23 +13,25 @@ use App\Http\Controllers\GeneratorController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/sample', function(){
-    $text = '明日は運動会に行く予定です。お弁当が楽しみです。';
+// Route::get('/sample', function(){
+//     $text = '明日は運動会に行く予定です。お弁当が楽しみです。';
 
-$MeCab = new \MeCab\Tagger();
-$nodes = $MeCab->parseToNode($text);
-$result = "";
-foreach ($nodes as $n) {
-    $result .= "---------------------------". "<br>";
-    $result .= "[" . $n->getSurface() . "]" . "<br>";
-    $result .= $n->getFeature() . "<br>";
-} 
-    return $result;
-});
+// $MeCab = new \MeCab\Tagger();
+// $nodes = $MeCab->parseToNode($text);
+// $result = "";
+// foreach ($nodes as $n) {
+//     $result .= "---------------------------". "<br>";
+//     $result .= "[" . $n->getSurface() . "]" . "<br>";
+//     $result .= $n->getFeature() . "<br>";
+// } 
+//     return $result;
+// });
+
+Route::redirect('/', 'summarygenerator', 301);
 
 // ここに追記
 Route::get('summarygenerator', [GeneratorController::class, 'index']);

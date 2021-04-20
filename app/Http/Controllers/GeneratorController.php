@@ -112,7 +112,6 @@ class GeneratorController extends Controller
                         $verbs[] = $n->getSurface();
                         break;
                     case "名詞":
-                        // var_dump($features);
                         if($features[1] === "固有名詞" || $features[1] === "一般"){
                             $nouns[] = $n->getSurface();
                         }                  
